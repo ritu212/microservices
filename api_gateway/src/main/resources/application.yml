@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: zuul
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8010/eureka
+server:
+  port: 8011
+zuul:
+  routes:
+    restaurant-service:
+      url: http://localhost:8012
+      path: /restaurant/*
+      stripPrefix: true
+    order-service:
+      url: http://localhost:8013
+      path: /order/*
+      stripPrefix: true
